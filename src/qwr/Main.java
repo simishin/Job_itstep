@@ -56,7 +56,7 @@ public class Main {
 
         prnq("-------Второе задание");
         Job2 z =new Job2();
-        for (int i: new int[]{21,20,28,12}) Job2.prnv(i);
+        for (int i: new int[]{21,20,28,42,23,23,23}) if(Job2.prnv(i)) break;
 
         prnq("-------Третье задание");
         prnq("Расширенный вариант калькулятора с римскими и арабскими числами" +
@@ -101,12 +101,18 @@ class Job2{
         assert prnq("старт конструктора");
     }
 
-    public static void prnv(int d){
-        if ((i+d)>s.length()) return;
+    public static boolean prnv(int d){
         for (int k=0; k<j; k++)prnt("\t");
+        if ((i+d)>s.length()) {
+            if (i<s.length()) prnq(s.substring(i));
+            assert prnq(" $ "+i+" "+s.length());
+            return true;
+        }
+
         prnq(s.substring(i,i+d));
         i+=d;
         j++;
+        return false;
     }
 }//class Job2 --------------------------------
 
